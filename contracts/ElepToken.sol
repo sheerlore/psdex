@@ -2,12 +2,9 @@
 
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/presets/ERC20PresetMinterPauser.sol";
+import "@openzeppelin/contracts/access/AccessControlDefaultAdminRules.sol";
 
-contract ElepToken is ERC20 {
-    uint256 public constant INITIAL_SUPPLY = 1000 * (10 ** 18);
-
-    constructor() ERC20("ElepToken", "ELP") {
-        _mint(msg.sender, INITIAL_SUPPLY);
-    }
+contract ElepToken is ERC20PresetMinterPauser {
+    constructor() ERC20PresetMinterPauser("ElepToken", "ELP") {}
 }
